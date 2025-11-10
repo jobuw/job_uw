@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | JOB at UW</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="JOB at UW Logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">ホーム (Home)</a></li>
+                    <li><a href="about.html">団体概要 (About)</a></li>
+                    <li><a href="join.html">参加方法 (Join)</a></li>
+                    <li><a href="contact.html" class="active">お問い合わせ (Contact)</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>お問い合わせ</h2>
+                    <p class="english-sub">Get in Touch</p>
+                </div>
+                <p class="fade-in" style="text-align: center; max-width: 600px; margin: -30px auto 50px;">
+                    ご質問やご相談がありましたら、お気軽にご連絡ください。担当者より折り返しご連絡いたします。
+                    <br>We'd love to hear from you. Send us a message and we'll get back to you shortly.
+                </p>
+
+                <div class="form-container fade-in">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">お名前 (Name)</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス (Email)</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">件名 (Subject)</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">メッセージ (Message)</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">メッセージを送信</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h4>JOB at UW</h4>
+                    <p>日本でキャリアを描いているすべての就活生に、より良い環境を。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="about.html">団体概要</a></li>
+                        <li><a href="join.html">参加方法</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="https://www.linkedin.com/groups/15610026/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 JOB at the University of Washington. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
