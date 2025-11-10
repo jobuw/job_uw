@@ -1,4 +1,4 @@
-/* public/css/styles.css (Final Version) */
+/* public/css/styles.css (Final Version - Mobile Optimized) */
 
 /* --- Global Styles & Variables --- */
 :root {
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 700; col
 .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #5a5a5a; font-size: 0.9rem; color: #aaa; }
 
 /* --- Home: Hero & Features --- */
-.hero { position: relative; height: calc(90vh - var(--header-height)); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; color: white; background-color: var(--uw-purple); background-image: linear-gradient(rgba(43, 21, 84, 0.7), rgba(43, 21, 84, 0.7)), url('../images/hero-background.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; }
+.hero { position: relative; height: 90vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; color: white; background-color: var(--uw-purple); background-image: linear-gradient(rgba(43, 21, 84, 0.7), rgba(43, 21, 84, 0.7)), url('../images/hero-background.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; }
 .hero-content { max-width: 800px; }
 .hero h1 { font-size: 3.5rem; color: white; margin-bottom: 20px; font-weight: 700; overflow: hidden; }
 .hero h1 .word-span-wrapper { display: inline-block; overflow: hidden; }
@@ -64,7 +64,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 700; col
 .hero p.english-sub { font-size: 1.3rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px; }
 .hero p, .hero .btn { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out 0.5s, transform 0.6s ease-out 0.5s; }
 .hero.is-active p, .hero.is-active .btn { opacity: 1; transform: translateY(0); }
-
 .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .feature-card { background: white; padding: 40px 30px; border-radius: 10px; text-align: center; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07); transform-style: preserve-3d; }
 .feature-card .icon { font-size: 3rem; color: var(--uw-gold); margin-bottom: 20px; }
@@ -81,7 +80,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 700; col
 .parallax-image-container { overflow: hidden; border-radius: 10px; }
 .parallax-image { width: 100%; height: auto; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
 
-/* --- Members / Overview Section --- */
+/* --- Members / Team Section --- */
 .team-layout-flex { display: flex; gap: 20px; max-width: 1400px; margin: 0 auto; }
 .member-card-flex { flex: 1; min-width: 250px; background-color: white; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .member-card-flex:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); }
@@ -92,10 +91,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); font-weight: 700; col
 .member-info { padding: 25px; text-align: center; }
 .member-info .name { font-size: 1.5rem; margin-bottom: 15px; color: var(--dark-text); font-weight: 700; }
 .member-info .bio { font-size: 0.9rem; color: var(--light-text); line-height: 1.6; }
-
-.members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.members-grid .member-card { padding: 30px 20px; background: white; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
-.members-grid .member-card .name { margin-bottom: 0; }
+.overview-container { max-width: 800px; margin: 0 auto; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 40px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07); }
+.overview-item { display: flex; align-items: flex-start; gap: 25px; padding: 30px 0; }
+.overview-item:not(:last-child) { border-bottom: 1px solid var(--border-color); }
+.overview-icon { font-size: 2rem; color: var(--uw-purple); padding-top: 5px; }
+.overview-content { flex: 1; } .overview-label { font-size: 0.9rem; color: var(--light-text); margin-bottom: 5px; font-weight: 500; }
+.overview-data { font-size: 1.3rem; color: var(--dark-text); font-weight: 600; line-height: 1.4; }
 
 /* --- Forms & CTA --- */
 .form-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07); }
@@ -119,95 +120,92 @@ textarea { resize: vertical; min-height: 150px; }
 .fade-in.is-visible { opacity: 1; transform: translateY(0); }
 .no-wrap { display: inline-block; white-space: nowrap; }
 
-/* --- Responsive Design --- */
-@media (max-width: 992px) { 
-  .features-grid { grid-template-columns: repeat(2, 1fr); } 
-  .about-content { grid-template-columns: 1fr; } 
+/*
+==============================================
+  Responsive Design (Mobile First Approach)
+==============================================
+*/
+
+/* --- Tablet & Smaller Screens (max-width: 992px) --- */
+@media (max-width: 992px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-content { grid-template-columns: 1fr; gap: 40px; }
   .team-layout-flex { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .member-photo { height: 350px; }
+  .member-info .name { font-size: 1.5rem; }
 }
+
+/* --- Mobile Screens (max-width: 768px) --- */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2.5rem; } .section { padding: 80px 0; } .section-title h2 { font-size: 2.2rem; } 
-  body { padding-top: 70px; } .header { height: 70px; } .logo img { height: 35px; }
-  .nav-links { position: fixed; top: 0; right: 0; width: 80%; max-width: 300px; height: 100vh; background-color: var(--bg-color); flex-direction: column; align-items: flex-start; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transform: translateX(100%); transition: transform 0.3s ease-in-out; }
-  .nav-links li { margin: 15px 0; width: 100%; } .nav-links a, .header.scrolled .nav-links a { color: var(--dark-text); } .nav-links.active { transform: translateX(0); }
-  .hamburger { display: flex; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001;}
-  .hamburger .bar { width: 25px; height: 3px; background-color: var(--uw-purple); border-radius: 5px; transition: all 0.3s ease; }
-  .hamburger.active .bar:nth-child(2) { opacity: 0; } .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); } .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-  .team-layout-flex { grid-template-columns: 1fr; }
-}
-@media (max-width: 576px) { 
-  .features-grid { grid-template-columns: 1fr; } 
-  .mobile-break { display: block; } .cta-text { font-size: 1rem; }
-}
-/* public/css/styles.css の Members / Overview Section を置き換え */
-
-/* --- Members / Team Section --- */
-.team-layout-flex {
-  /* ... (役員紹介のスタイルは変更なし) ... */
-  display: flex;
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* --- Organization Overview Section (NEW STYLISH DESIGN) --- */
-.overview-container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 20px 40px; /* パディングを少し調整 */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-}
-
-.overview-item {
-  display: flex;
-  align-items: flex-start; /* アイコンとテキストの上端を揃える */
-  gap: 25px;
-  padding: 30px 0;
-}
-
-.overview-item:not(:last-child) {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.overview-icon {
-  font-size: 2rem;
-  color: var(--uw-purple);
-  padding-top: 5px; /* テキストとの垂直位置を微調整 */
-}
-
-.overview-content {
-  flex: 1;
-}
-
-.overview-label {
-  font-size: 0.9rem;
-  color: var(--light-text);
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.overview-data {
-  font-size: 1.3rem;
-  color: var(--dark-text);
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-/* --- レスポンシブ対応の追加 --- */
-/* @media (max-width: 576px) の中に追記 */
-@media (max-width: 576px) {
-  /* ...他のスタイル... */
+  :root { --header-height: 70px; }
+  body { padding-top: var(--header-height); }
   
-  .overview-container {
-    padding: 10px 25px;
+  .section { padding: 80px 0; }
+  .section-title { margin-bottom: 40px; }
+  .section-title h2 { font-size: 2.2rem; }
+  .section-title p, .section-title .english-sub { font-size: 1rem; }
+  
+  /* Header & Navigation for Mobile */
+  .header { height: var(--header-height); }
+  .logo img { height: 35px; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 40px 40px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .overview-item {
-      gap: 15px;
+  .nav-links.active { transform: translateX(0); }
+  .nav-links li { margin: 20px 0; width: 100%; }
+  .nav-links a { font-size: 1.2rem; }
+  .nav-links a, .header.scrolled .nav-links a { color: var(--dark-text); }
+  
+  .hamburger {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001; /* メニューより手前に */
+    padding: 10px;
   }
-  .overview-data {
-    font-size: 1.1rem;
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--uw-purple);
+    border-radius: 5px;
+    transition: all 0.3s ease;
   }
+  .hamburger.active .bar { background-color: var(--dark-text); } /* メニュー展開時は常に黒 */
+  .hamburger.active .bar:nth-child(2) { opacity: 0; }
+  .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  
+  /* Hero Section for Mobile */
+  .hero { height: 80vh; min-height: 500px; }
+  .hero h1 { font-size: 2.3rem; line-height: 1.4; }
+  .hero p.english-sub { font-size: 1.1rem; }
+  
+  /* Layouts for Mobile */
+  .features-grid { grid-template-columns: 1fr; }
+  .team-layout-flex { grid-template-columns: 1fr; }
+  
+  /* About Page for Mobile */
+  .about-content { text-align: center; }
+  .about-content .about-image { order: -1; margin-bottom: 30px; } /* 画像を上にする */
+  .overview-container { padding: 10px 25px; }
+  .overview-item { gap: 15px; }
+  .overview-data { font-size: 1.1rem; }
+  
+  /* CTA Section for Mobile */
+  .cta-section { padding: 60px 0; }
+  .cta-text { font-size: 1rem; }
+  .mobile-break { display: block; }
 }
